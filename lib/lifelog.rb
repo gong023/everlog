@@ -3,6 +3,7 @@ require 'dotenv'
 require 'article'
 require 'l_twitter'
 require 'l_moves'
+require 'evernote'
 
 Dotenv.load
 
