@@ -17,10 +17,9 @@ describe Lifelog::Moves do
   describe '#parse_to_markdown' do
     subject { instance.parse_to_markdown(response) }
     context 'valid response' do
-      let(:response) { open(File.dirname(__FILE__) + "/moves_response.json") { |io| JSON.load(io)} }
-      it 'hoge' do
+      let(:response) { JSON.load(File.open(File.dirname(__FILE__) + "/../fixtures/moves_response.json")) }
+      xit 'parse correctly' do
         subject
-        expect(true).to be_true
       end
     end
   end
