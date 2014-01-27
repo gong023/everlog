@@ -12,7 +12,7 @@ class Lifelog
 
       def render
         validate_before_render
-        template = File.open(File.dirname(__FILE__) + '/en-note.erb').read.delete("\n")
+        template = File.open(File.dirname(__FILE__) + '/content.erb').read.delete("\n")
         ERB.new(template).result(binding)
       end
 

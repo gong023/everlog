@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE en-note SYSTEM 'http://xml.evernote.com/pub/enml2.dtd'>
+<en-note>
+  <h1># Twitter</h1>
+  <ul>
+    <% @tweet.each do |t| %>
+      <li><%= t %></li>
+    <% end %>
+  </ul>
+
+  <h1># Moves</h1>
+  <h2>場所1</h2>
+  <ul>
+    <li>徒歩</li>
+    <ul>
+      <li>9:30 ~ 10:00 (30分)</li>
+      <li>1km</li>
+    </ul>
+    <li>自転車</li>
+    <ul>
+      <li>10:00 ~ 10:40 (40分)</li>
+      <li>8km</li>
+    </ul>
+  </ul>
+  <h2>場所2</h2>
+  <li>徒歩</li>
+  <ul>
+      <li>14:30 ~ 14:40 (10分)</li>
+      <li>500m</li>
+  </ul>
+  <h2>場所3</h2>
+  <h2>合計</h2>
+  <ul>
+    <li>200カロリー</li>
+    <li>徒歩:1km</li>
+    <li>自転車:3km</li>
+    <li>交通機関:10km</li>
+  </ul>
+  <%
+  # {
+  #   activity: {
+  #     '中目黒' => {
+  #       '徒歩' => {
+  #         time: '',
+  #         duration: '',
+  #         distance: ''
+  #       },
+  #       '自転車' => {
+  #         time: '',
+  #         duration: '',
+  #         distance: ''
+  #       }
+  #     },
+  #     六本木: {
+  #       '徒歩' => {
+  #         time: '',
+  #         duration: '',
+  #         distance: ''
+  #       },
+  #     },
+  #     中目黒: {
+  #     }
+  #   },
+  #   summary: {
+  #     cal: 200,
+  #     walk: 1,
+  #     cycle: 3,
+  #     transport: 10
+  #   }
+  # }
+  %>
+</en-note>
