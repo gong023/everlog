@@ -1,8 +1,8 @@
 task default: :post_daily
 
-$:.unshift File.expand_path("../../lib", __FILE__)
-require 'lifelog'
+$:.concat Dir.glob('lib/**/')
 
 task :post_daily do
+  require 'lifelog'
   Lifelog.daily
 end

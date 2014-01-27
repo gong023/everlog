@@ -2,7 +2,6 @@ require 'moves'
 
 class Lifelog
   class Moves
-    include Article
 
     def client
       ::Moves::Client.new(ENV['moves_access_token'])
