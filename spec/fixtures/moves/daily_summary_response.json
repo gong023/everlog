@@ -1,0 +1,24 @@
+[{
+    "date": "20130315",
+    "summary": [
+        {
+            "activity": "wlk",
+            "duration": 2133,
+            "distance": 1847,
+            "steps": 2500
+        },
+        {
+            "activity": "run",
+            "duration": 254,
+            "distance": 436,
+            "steps": 624,
+            "calories": 99
+        },
+        {
+            "activity": "cyc",
+            "duration": 2688,
+            "distance": 4049,
+            "calories": 999
+        }
+    ]
+}]
