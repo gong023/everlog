@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'json'
 
 describe Lifelog::Moves do
   let(:instance) { described_class.new }
@@ -16,10 +15,9 @@ describe Lifelog::Moves do
 
   describe '#summary' do
     subject { instance.summary }
-
     shared_examples_for 'have correct keys' do
       it { expect(subject).to have_key :summary }
-      it { expect(subject[:summary].keys).to eq [:cal, :walk, :cycle, :trp] }
+      it { subject[:summary].keys.should =~ [:cal, :walk, :cycle, :trp] }
     end
 
     context 'without mock' do

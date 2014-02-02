@@ -1,7 +1,7 @@
 require 'pp'
 require 'dotenv'
 require 'l_twitter'
-require 'l_moves'
+require 'move'
 require 'evernote'
 
 Dotenv.load
