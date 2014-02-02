@@ -1,6 +1,6 @@
 require 'pp'
 require 'dotenv'
-require 'l_twitter'
+require 'twitt'
 require 'move'
 require 'evernote'
 
