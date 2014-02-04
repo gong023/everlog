@@ -39,4 +39,13 @@ describe Lifelog::Moves do
       end
     end
   end
+
+  describe '#storyline' do
+    subject { instance.storyline }
+
+    context 'with mock' do
+      let(:json) { load_fixture('moves/daily_storyline_response.json') }
+      before { ::Moves::Client.any_instance.should_receive(:daily_storyline).and_return(json) }
+    end
+  end
 end

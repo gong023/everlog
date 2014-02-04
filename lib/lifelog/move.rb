@@ -9,7 +9,10 @@ class Lifelog
     end
 
     def today
-      client.daily_storyline
+    end
+
+    def storyline
+      api_result = client.daily_storyline
     end
 
     def summary

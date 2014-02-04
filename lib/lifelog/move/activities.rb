@@ -1,5 +1,7 @@
 class Lifelog
   class Moves
+    require 'place'
+
     class ActivityFactory
       def self.build(table)
         case table['activity']
@@ -17,7 +19,7 @@ class Lifelog
     end
 
     class Activity
-      def initialize(table)
+      def initialize table
         @table = table
       end
 
@@ -41,5 +43,6 @@ class Lifelog
     class Cycle < Activity; end
 
     class Transport < Activity; end
+
   end
 end
