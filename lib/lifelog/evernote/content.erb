@@ -36,37 +36,31 @@
     <li>自転車:3km</li>
     <li>交通機関:10km</li>
   </ul>
-  <%
-  # {
-  #   activity: {
-  #     '中目黒' => {
-  #       '徒歩' => {
-  #         time: '',
-  #         duration: '',
-  #         distance: ''
-  #       },
-  #       '自転車' => {
-  #         time: '',
-  #         duration: '',
-  #         distance: ''
-  #       }
-  #     },
-  #     六本木: {
-  #       '徒歩' => {
-  #         time: '',
-  #         duration: '',
-  #         distance: ''
-  #       },
-  #     },
-  #     中目黒: {
-  #     }
-  #   },
-  #   summary: {
-  #     cal: 200,
-  #     walk: 1,
-  #     cycle: 3,
-  #     transport: 10
-  #   }
-  # }
-  %>
 </en-note>
+<%
+# {
+#   activity: [
+#     {
+#       place: '中目黒',
+#       move: [
+#         {
+#           action: 'Walk',
+#           time: '9:30 ~ 10:00 (30分)',
+#           distance: 1,
+#         },
+#         {
+#           action: 'Cycle',
+#           time: '10:00 ~ 10:40 (40分)'
+#           distance: '8km'
+#         }
+#       ]
+#     },...
+#   ],
+#   summary: {
+#     cal: 200,
+#     walk: 1,
+#     cycle: 3,
+#     transport: 10
+#   }
+# }
+%>
