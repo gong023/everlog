@@ -2,7 +2,7 @@ class Lifelog
   class Moves
     require 'moves'
     require 'active_support/core_ext/object/try'
-    require 'activities'
+    require 'lifelog/moves/activities'
 
     def client
       @client ||= ::Moves::Client.new(ENV['moves_access_token'])

@@ -2,7 +2,6 @@ class Lifelog
   module Evernote
     class Content
       require 'erb'
-      require 'pathname'
 
       TEMPLATED = ['tweet'].freeze
 

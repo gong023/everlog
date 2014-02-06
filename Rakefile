@@ -1,6 +1,6 @@
 task default: :post_daily
 
-$:.concat Dir.glob('lib/**/')
+$:.push File.dirname(__FILE__) + '/lib/'
 
 task :post_daily do
   require 'lifelog'

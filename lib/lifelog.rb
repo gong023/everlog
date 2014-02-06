@@ -1,8 +1,8 @@
 require 'pp'
 require 'dotenv'
-require 'twitt'
-require 'move'
-require 'evernote'
+require 'lifelog/twitter'
+require 'lifelog/moves'
+require 'lifelog/evernote'
 
 Dotenv.load
 
