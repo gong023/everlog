@@ -9,7 +9,7 @@ class Lifelog
     end
 
     def today
-      { activity: storyline, summary: summary }
+      { 'activity' => storyline, 'summary' => summary }
     end
 
     def storyline
@@ -22,7 +22,7 @@ class Lifelog
 
       storyline = []
       activities.each_with_index do |activity, i|
-        storyline << { place: activity, move: activities[i + 1] } if i.even?
+        storyline << { 'place' => activity, 'move' => activities[i + 1] } if i.even?
       end
       storyline
     end
@@ -36,10 +36,10 @@ class Lifelog
       end
 
       {
-        cal: activities.values.map(&:calorie).inject(:+),
-        walk: activities["walk"].try(:distance) || 0,
-        trp: activities["transport"].try(:distance) || 0,
-        cycle: activities["cycle"].try(:distance) || 0,
+        'cal' => activities.values.map(&:calorie).inject(:+),
+        'walk' => activities["walk"].try(:distance) || 0,
+        'trp' => activities["transport"].try(:distance) || 0,
+        'cycle' => activities["cycle"].try(:distance) || 0,
       }
     end
   end

@@ -19,7 +19,7 @@
   <h2>## Detail</h2>
   <% @moves['activity'].each do |act| %>
     <h3><%= act['place'] %></h3>
-    <% unless act['move'].nil? %>
+    <% if act['move'].instance_of?(Array) %>
       <% act['move'].each do |m| %>
         <ul>
           <li><%= m['action'] %></li>

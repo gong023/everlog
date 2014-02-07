@@ -4,9 +4,9 @@ class Lifelog
       def to_a
         @table['activities'].map do |act|
           {
-            action: act['activity'],
-            time: time(act),
-            distance: distance(act),
+            'action' => act['activity'],
+            'time' => time(act),
+            'distance' => distance(act),
           }
         end
       end
