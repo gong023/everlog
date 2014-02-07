@@ -35,7 +35,7 @@ class Lifelog
       end
 
       def distance
-        @table['distance'] || 0
+        @table['distance'].to_f / 1000
       end
 
       def name

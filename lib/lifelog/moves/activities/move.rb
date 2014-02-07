@@ -19,12 +19,12 @@ class Lifelog
       end
 
       def distance act
-        "#{act['distance'].to_f / 1000}km"
+        act['distance'].to_f / 1000
       end
 
       private
       def pick_today response
-        (DateTime.parse(response).to_time + 3600*9).to_s
+        DateTime.parse(response).to_time.to_s
       end
 
       def parse_to_His date

@@ -8,6 +8,6 @@ describe Lifelog::Moves::Place do
 
   describe '#screen_name' do
     subject { instance.screen_name }
-    it { expect(subject).to eq "O18, スモレンスク ロシア / ロシア スモレンスク ホルム＝ジルコフスキー / " }
+    it { expect(subject).to eq "O18, スモレンスク ロシア" }
   end
 end

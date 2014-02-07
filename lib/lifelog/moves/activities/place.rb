@@ -10,8 +10,7 @@ class Lifelog
 
       def screen_name
         api_result = Geocoder.search("#{@table['place']['location']['lat']},#{@table['place']['location']['lon']}")
-        name = ''; 2.times { |i| name += "#{api_result[i].formatted_address} / " }
-        name
+        api_result.first.formatted_address
       end
     end
   end

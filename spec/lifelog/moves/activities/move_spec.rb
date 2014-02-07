@@ -10,12 +10,12 @@ describe Lifelog::Moves::Move do
   describe '#time' do
     subject { instance.time(act) }
 
-    it { expect(subject).to eq '01:14:30 ~ 01:27:32 (13min)' }
+    it { expect(subject).to eq '16:14:30 ~ 16:27:32 (13min)' }
   end
 
   describe '#distance' do
     subject { instance.distance(act) }
 
-    it { expect(subject).to eq "1.251km" }
+    it { expect(subject).to be 1.251 }
   end
 end
