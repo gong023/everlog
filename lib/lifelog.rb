@@ -9,7 +9,8 @@ Dotenv.load
 class Lifelog
   def self.daily
     content = Evernote::Content.new
-    content.push(:tweet, Twitter.new.today)
+    content.push(:twitter, Twitter.new.today)
+    content.push(:moves, Moves.new.today)
     title = "日記/#{Date.today.to_s}"
     Evernote::Note.new.post(title, content.render)
   end

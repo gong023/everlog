@@ -3,64 +3,30 @@
 <en-note>
   <h1># Twitter</h1>
   <ul>
-    <% @tweet.each do |t| %>
+    <% @twitter.each do |t| %>
       <li><%= t %></li>
     <% end %>
   </ul>
 
   <h1># Moves</h1>
-  <h2>場所1</h2>
+  <h2>## Summary</h2>
   <ul>
-    <li>徒歩</li>
-    <ul>
-      <li>9:30 ~ 10:00 (30分)</li>
-      <li>1km</li>
-    </ul>
-    <li>自転車</li>
-    <ul>
-      <li>10:00 ~ 10:40 (40分)</li>
-      <li>8km</li>
-    </ul>
+    <li>Walk: <%= @moves['summary']['walk'] %>km</li>
+    <li>Cycle: <%= @moves['summary']['cycle'] %>km</li>
+    <li>Transport: <%= @moves['summary']['transport'] %>km</li>
+    <li><%= @moves['summary']['cal'] %>cal</li>
   </ul>
-  <h2>場所2</h2>
-  <li>徒歩</li>
-  <ul>
-      <li>14:30 ~ 14:40 (10分)</li>
-      <li>500m</li>
-  </ul>
-  <h2>場所3</h2>
-  <h2>合計</h2>
-  <ul>
-    <li>200カロリー</li>
-    <li>徒歩:1km</li>
-    <li>自転車:3km</li>
-    <li>交通機関:10km</li>
-  </ul>
+  <h2>## Detail</h2>
+  <% @moves['activity'].each do |act| %>
+    <h3><%= act['place'] %></h3>
+    <% unless act['move'].nil? %>
+      <% act['move'].each do |m| %>
+        <ul>
+          <li><%= m['action'] %></li>
+          <li><%= m['time'] %></li>
+          <li><%= m['distance'] %></li>
+        </ul>
+      <% end %>
+    <% end %>
+  <% end %>
 </en-note>
-<%
-# {
-#   activity: [
-#     {
-#       place: '中目黒',
-#       move: [
-#         {
-#           action: 'Walk',
-#           time: '9:30 ~ 10:00 (30分)',
-#           distance: 1,
-#         },
-#         {
-#           action: 'Cycle',
-#           time: '10:00 ~ 10:40 (40分)'
-#           distance: '8km'
-#         }
-#       ]
-#     },...
-#   ],
-#   summary: {
-#     cal: 200,
-#     walk: 1,
-#     cycle: 3,
-#     transport: 10
-#   }
-# }
-%>

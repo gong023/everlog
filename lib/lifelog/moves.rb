@@ -9,6 +9,7 @@ class Lifelog
     end
 
     def today
+      { activity: storyline, summary: summary }
     end
 
     def storyline
