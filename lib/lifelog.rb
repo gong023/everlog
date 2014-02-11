@@ -3,6 +3,7 @@ require 'dotenv'
 require 'lifelog/twitter'
 require 'lifelog/moves'
 require 'lifelog/evernote'
+require 'lifelog/hatena'
 
 Dotenv.load
 
