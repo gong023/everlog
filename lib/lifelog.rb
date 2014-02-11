@@ -12,6 +12,7 @@ class Lifelog
     content = Evernote::Content.new
     content.push(:twitter, Twitter.new.today)
     content.push(:moves, Moves.new.today)
+    content.push(:hatena, Hatena.new.today)
     title = "日記/#{Date.today.to_s}"
     Evernote::Note.new.post(title, content.render)
   end

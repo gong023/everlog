@@ -29,4 +29,11 @@
       <% end %>
     <% end %>
   <% end %>
+
+  <h1># Hatena Bookmark</h1>
+  <ul>
+    <% @hatena.each do |h| %>
+      <li><a href="<%= h['link'] %>"><%= h['title'] %></a></li>
+    <% end %>
+  </ul>
 </en-note>
