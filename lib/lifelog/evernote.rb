@@ -5,7 +5,10 @@ class Lifelog
     require 'lifelog/evernote/content'
 
     def client
-      @client ||= EvernoteOAuth::Client.new(token: ENV['evernote_access_token'])
+      @client ||= EvernoteOAuth::Client.new(
+        token: ENV['evernote_access_token'],
+        sandbox: false
+      )
     end
   end
 end

@@ -3,7 +3,7 @@ class Lifelog
     class Content
       require 'erb'
 
-      TEMPLATED = ['twitter', 'moves'].freeze
+      TEMPLATED = ['twitter', 'moves', 'hatena'].freeze
 
       def push(name, value)
         instance_variable_set("@#{name}", value)
