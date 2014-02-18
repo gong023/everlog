@@ -8,6 +8,25 @@
     <% end %>
   </ul>
 
+  <h1># Hatena Bookmark</h1>
+  <ul>
+    <% @hatena.each do |h| %>
+      <li><a href="<%= h['link'] %>"><%= h['title'] %></a></li>
+    <% end %>
+  </ul>
+
+  <h1># Github</h1>
+  <ul>
+    <% @github.each do |g| %>
+      <li><%= g[:repo] %></li>
+      <% g[:commits].each do |commit| %>
+        <ul>
+          <li><a href="<%= commit[:url] %>"><%= commit[:message] %></a></li>
+        </ul>
+      <% end %>
+    <% end %>
+  </ul>
+
   <h1># Moves</h1>
   <h2>## Summary</h2>
   <ul>
@@ -30,10 +49,4 @@
     <% end %>
   <% end %>
 
-  <h1># Hatena Bookmark</h1>
-  <ul>
-    <% @hatena.each do |h| %>
-      <li><a href="<%= h['link'] %>"><%= h['title'] %></a></li>
-    <% end %>
-  </ul>
 </en-note>

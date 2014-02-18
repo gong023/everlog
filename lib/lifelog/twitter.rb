@@ -15,7 +15,7 @@ class Lifelog
       one_day_ago = (DateTime.now - 1).to_time
       client.user_timeline('gong023', { count: 200 }).map do |tweet|
         tweet.text if tweet.created_at > one_day_ago
-      end.compact
+      end.compact.reverse
     end
   end
 end
