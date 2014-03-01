@@ -1,5 +1,5 @@
 class Lifelog
-  class Twitter
+  class TwitterApp
     require 'twitter'
 
     def client
@@ -12,10 +12,39 @@ class Lifelog
     end
 
     def today
-      one_day_ago = (DateTime.now - 1).to_time
-      client.user_timeline('gong023', { count: 200 }).map do |tweet|
-        tweet.text if tweet.created_at > one_day_ago
+      timeline = client.user_timeline('gong023', { count: 200 })
+
+      timeline.map do |t|
+        Twitter.new(t) if t.created_at > (DateTime.now - 1).to_time
       end.compact.reverse
+    end
+  end
+
+  class NullObject
+    def method_missing(*args, &block)
+      self
+    end
+
+    def to_a; []; end
+    def to_s; ''; end
+    def to_i; 0; end
+    def to_f; 0.0; end
+  end
+
+  module Maybe
+    def maybe value
+      value.nil? ? NullObject.new : value
+    end
+  end
+
+  class Twitter < NullObject
+    include Maybe
+    def initialize(response)
+      @response = response
+    end
+
+    def tweet
+      maybe(@response.text).to_s
     end
   end
 end

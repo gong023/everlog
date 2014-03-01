@@ -11,7 +11,7 @@ Dotenv.load
 class Lifelog
   def self.daily
     content = Evernote::Content.new
-    content.push(:twitter, Twitter.new.today)
+    content.push(:twitter, TwitterApp.new.today)
     content.push(:moves, Moves.new.today)
     content.push(:hatena, Hatena.new.today)
     content.push(:github, Github.new.today)
