@@ -26,5 +26,10 @@ describe Lifelog::App::Hatena do
       let(:response) { [valid_date_feed, valid_date_feed, invalid_date_feed] }
       it_behaves_like 'valid result'
     end
+
+    context 'with no response data' do
+      let(:response) { [] }
+      it { expect(subject).to eq [] }
+    end
   end
 end

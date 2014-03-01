@@ -11,8 +11,7 @@ class Lifelog
     end
 
     def link
-      row_array = maybe(@response['link']).to_h
-      maybe(row_array.first['href']).to_s
+      @response['link'].first['href']
     end
 
     def issued

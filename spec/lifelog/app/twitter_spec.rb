@@ -24,5 +24,10 @@ describe Lifelog::App::Twitter do
       let(:response) { [valid_date_tweet, valid_date_tweet, invalid_date_tweet] }
       it_behaves_like 'valid result'
     end
+
+    context 'with no response data' do
+      let(:response) { [] }
+      it { expect(subject).to eq [] }
+    end
   end
 end

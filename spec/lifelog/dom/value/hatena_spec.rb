@@ -12,15 +12,6 @@ describe Lifelog::Dom::Value::Hatena do
     end
   end
 
-  describe '#link' do
-    subject { instance.link }
-
-    context 'with no link and no href in response' do
-      let(:response) { {} }
-      it { expect(subject).to eq '' }
-    end
-  end
-
   describe '#issued' do
     subject { instance.issued }
 
