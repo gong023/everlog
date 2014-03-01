@@ -1,16 +1,10 @@
 require 'spec_helper'
 
-describe Lifelog::TwitterApp do
-  let(:instance) { described_class.new }
-  describe '#client' do
-    it 'memo @client' do
-      expect(instance.client).to be instance.client
-    end
-  end
+describe Lifelog::App::Twitter do
 
-  describe '#today' do
-    subject { instance.today }
-    before { described_class.any_instance.stub_chain(:client, :user_timeline).and_return(response) }
+  describe '.fetch_since' do
+    subject { described_class.fetch_since (DateTime.now - 1).to_time }
+    before { Lifelog::Inf::Api::Twitter.any_instance.stub(:timeline).and_return(response) }
 
     let(:valid_date_tweet) { double('Twitter:Tweet', text: 'hello', created_at: DateTime.now.to_time) }
     let(:invalid_date_tweet) { double('Twitter:Tweet', text: 'invalid date', created_at: (DateTime.now - 2).to_time) }
@@ -29,19 +23,6 @@ describe Lifelog::TwitterApp do
     context 'with too old tweet existing' do
       let(:response) { [valid_date_tweet, valid_date_tweet, invalid_date_tweet] }
       it_behaves_like 'valid result'
-    end
-  end
-end
-
-describe Lifelog::Twitter do
-  let(:instance) { described_class.new(response) }
-
-  context '#tweet' do
-    context 'with Twitter::Tweet nil' do
-      subject { instance.tweet }
-      let(:response) { double('Twitter::Tweet', text: nil) }
-
-      it { expect(subject).to eq '' }
     end
   end
 end

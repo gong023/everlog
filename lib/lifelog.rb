@@ -1,7 +1,10 @@
 require 'pp'
 require 'dotenv'
 require 'lifelog/nullobject'
+require 'lifelog/inf'
+require 'lifelog/dom'
 require 'lifelog/app'
+
 require 'lifelog/moves'
 require 'lifelog/evernote'
 require 'lifelog/hatena'

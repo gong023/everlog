@@ -1,7 +1,5 @@
 class Lifelog
   class App::Twitter < App
-    require 'lifelog/inf/api/twitter'
-    require 'lifelog/dom/value/twitter'
 
     class << self
       def today
