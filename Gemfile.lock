@@ -105,6 +105,7 @@ DEPENDENCIES
   guard-rspec
   hatena-bookmark
   moves
+  naught
   octokit
   rspec
   twitter
