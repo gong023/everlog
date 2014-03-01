@@ -10,12 +10,14 @@
     </ul>
   <% end %>
 
-  <h1># Hatena Bookmark</h1>
-  <ul>
-    <% @hatena.each do |h| %>
-      <li><a href="<%= h['link'] %>"><%= h['title'] %></a></li>
-    <% end %>
-  </ul>
+  <% unless @hatena.nil? || @hatena.empty? %>
+    <h1># Hatena Bookmark</h1>
+    <ul>
+      <% @hatena.each do |h| %>
+        <li><a href="<%= h.link %>"><%= h.title %></a></li>
+      <% end %>
+    </ul>
+  <% end %>
 
   <h1># Github</h1>
   <ul>
