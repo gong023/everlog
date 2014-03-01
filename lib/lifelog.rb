@@ -14,8 +14,9 @@ Dotenv.load
 
 class Lifelog
   def self.daily
+    one_day_ago = (DateTime.now - 1).to_time
     content = Evernote::Content.new
-    content.push(:twitter, App::Twitter.today)
+    content.push(:twitter, App::Twitter.fetch_since(one_day_ago))
     content.push(:moves, Moves.new.today)
     content.push(:hatena, Hatena.new.today)
     content.push(:github, Github.new.today)

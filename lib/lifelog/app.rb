@@ -2,7 +2,7 @@ class Lifelog
   class App
     require 'lifelog/app/twitter'
 
-    def self.today
+    def self.fetch_since
       raise 'no implemented.'
     end
   end
