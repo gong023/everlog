@@ -12,28 +12,14 @@ class Lifelog
     end
 
     def today
-      timeline = client.user_timeline('gong023', { count: 200 })
-
-      timeline.map do |t|
-        Twitter.new(t) if t.created_at > (DateTime.now - 1).to_time
-      end.compact.reverse
-    end
-  end
-
-  class NullObject
-    def method_missing(*args, &block)
-      self
+      fetch_by_date (DateTime.now - 1).to_time
     end
 
-    def to_a; []; end
-    def to_s; ''; end
-    def to_i; 0; end
-    def to_f; 0.0; end
-  end
-
-  module Maybe
-    def maybe value
-      value.nil? ? NullObject.new : value
+    private
+    def fetch_by_date(date)
+      api_response = client.user_timeline('gong023', { count: 200 })
+      tweets = api_response.map { |r| Twitter.new(r) if r.created_at > date }
+      tweets.compact.reverse
     end
   end
 

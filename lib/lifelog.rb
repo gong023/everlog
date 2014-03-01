@@ -1,5 +1,6 @@
 require 'pp'
 require 'dotenv'
+require 'lifelog/nullobject'
 require 'lifelog/twitter'
 require 'lifelog/moves'
 require 'lifelog/evernote'

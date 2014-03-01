@@ -27,13 +27,21 @@ describe Lifelog::TwitterApp do
     end
 
     context 'with too old tweet existing' do
-      let(:response) { [valid_date_tweet, valid_date_tweet, invalid_date_tweet]}
+      let(:response) { [valid_date_tweet, valid_date_tweet, invalid_date_tweet] }
       it_behaves_like 'valid result'
     end
+  end
+end
 
+describe Lifelog::Twitter do
+  let(:instance) { described_class.new(response) }
+
+  context '#tweet' do
     context 'with Twitter::Tweet nil' do
-      let(:response) { [double('Twitter::Tweet', text: nil, created_at: DateTime.now.to_time)] }
-      it { expect(subject[0].tweet).to eq '' }
+      subject { instance.tweet }
+      let(:response) { double('Twitter::Tweet', text: nil) }
+
+      it { expect(subject).to eq '' }
     end
   end
 end
