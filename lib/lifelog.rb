@@ -1,7 +1,7 @@
 require 'pp'
 require 'dotenv'
 require 'lifelog/nullobject'
-require 'lifelog/twitter'
+require 'lifelog/app'
 require 'lifelog/moves'
 require 'lifelog/evernote'
 require 'lifelog/hatena'
@@ -12,7 +12,7 @@ Dotenv.load
 class Lifelog
   def self.daily
     content = Evernote::Content.new
-    content.push(:twitter, TwitterApp.new.today)
+    content.push(:twitter, App::Twitter.today)
     content.push(:moves, Moves.new.today)
     content.push(:hatena, Hatena.new.today)
     content.push(:github, Github.new.today)
