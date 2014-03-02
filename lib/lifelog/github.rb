@@ -1,10 +1,5 @@
 class Lifelog
   class Github
-    require 'octokit'
-
-    def client
-      @client ||= Octokit::Client.new(access_token: ENV['github_access_secret'])
-    end
 
     def today
       all_repos.inject([]) do |result, repo|

@@ -19,17 +19,19 @@
     </ul>
   <% end %>
 
-  <h1># Github</h1>
-  <ul>
-    <% @github.each do |g| %>
-      <li><%= g[:repo] %></li>
-      <% g[:commits].each do |commit| %>
-        <ul>
-          <li><a href="<%= commit[:url] %>"><%= commit[:message] %></a></li>
-        </ul>
+  <% unless @github.nil? || @github.empty? %>
+    <h1># Github</h1>
+    <ul>
+      <% @github.each do |g| %>
+        <li><%= g.repo_name %></li>
+        <% g.commits.each do |commit| %>
+          <ul>
+            <li><a href="<%= commit.url %>"><%= commit.message %></a></li>
+          </ul>
+        <% end %>
       <% end %>
-    <% end %>
-  </ul>
+    </ul>
+  <% end %>
 
   <h1># Moves</h1>
   <h2>## Summary</h2>
