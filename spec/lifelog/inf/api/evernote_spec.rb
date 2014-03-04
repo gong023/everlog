@@ -1,11 +1,27 @@
 require 'spec_helper'
 
 describe Lifelog::Inf::Api::Evernote do
-  let(:instance) { described_class.new }
+  let(:instance) { described_class.new(true) }
 
   describe '#client' do
+    subject { instance.client }
     it 'memo @client' do
-      expect(instance.client).to be instance.client
+      expect(subject).to be instance.client
+    end
+
+    context 'with sandbox true' do
+      it do
+        expect(subject.instance_eval { @sandbox }).to be_true
+        expect(subject.instance_eval { @token }).to eq ENV['evernote_sandbox_access_token']
+      end
+    end
+
+    context 'with sandbox false' do
+      let(:instance) { described_class.new(false) }
+      it do
+        expect(subject.instance_eval { @sandbox }).to be_false
+        expect(subject.instance_eval { @token }).to eq ENV['evernote_access_token']
+      end
     end
   end
 
@@ -25,6 +41,6 @@ describe Lifelog::Inf::Api::Evernote do
 EOS
       end
 
-    it { expect(instance.post_note('title', content)).not_to raise_error }
+    it { expect { instance.post_note('title', content) }.not_to raise_error }
   end
 end
