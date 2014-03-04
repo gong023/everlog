@@ -33,24 +33,26 @@
     </ul>
   <% end %>
 
-  <h1># Moves</h1>
-  <h2>## Summary</h2>
-  <ul>
-    <li>Walk: <%= @moves['summary']['walk'] %>km</li>
-    <li>Cycle: <%= @moves['summary']['cycle'] %>km</li>
-    <li>Transport: <%= @moves['summary']['transport'] %>km</li>
-    <li><%= @moves['summary']['cal'] %>cal</li>
-  </ul>
-  <h2>## Detail</h2>
-  <% @moves['activity'].each do |act| %>
-    <h3><%= act['place'] %></h3>
-    <% if act['move'].instance_of?(Array) %>
-      <% act['move'].each do |m| %>
-        <ul>
-          <li><%= m['action'] %></li>
-          <li><%= m['time'] %></li>
-          <li><%= m['distance'] %>km</li>
-        </ul>
+  <% unless @moves.nil? || @moves.empty? %>
+    <h1># Moves</h1>
+    <h2>## Summary</h2>
+    <ul>
+      <li>Walk: <%= @moves['summary']['walk'] %>km</li>
+      <li>Cycle: <%= @moves['summary']['cycle'] %>km</li>
+      <li>Transport: <%= @moves['summary']['transport'] %>km</li>
+      <li><%= @moves['summary']['cal'] %>cal</li>
+    </ul>
+    <h2>## Detail</h2>
+    <% @moves['activity'].each do |act| %>
+      <h3><%= act['place'] %></h3>
+      <% if act['move'].instance_of?(Array) %>
+        <% act['move'].each do |m| %>
+          <ul>
+            <li><%= m['action'] %></li>
+            <li><%= m['time'] %></li>
+            <li><%= m['distance'] %>km</li>
+          </ul>
+        <% end %>
       <% end %>
     <% end %>
   <% end %>
