@@ -1,21 +1,17 @@
 class Lifelog
-  class Dom::Value::Moves::Summary
+  class Dom::Value::Moves::Summary < Dom::Value::Moves
     include Maybe
 
-    def initialize response
-      @response = response
-    end
-
     def walk
-      maybe(pick('wlk'))['distance'].to_f / 1000
+      maybe(pick('wlk'))['distance'].to_f / km
     end
 
     def cycle
-      maybe(pick('cyc'))['distance'].to_f / 1000
+      maybe(pick('cyc'))['distance'].to_f / km
     end
 
     def transport
-      maybe(pick('trp'))['distance'].to_f / 1000
+      maybe(pick('trp'))['distance'].to_f / km
     end
 
     def cal
