@@ -10,13 +10,25 @@ describe Lifelog::Dom::Value::Moves::Summary do
     end
 
     context 'abnormal' do
-      let(:response) do
-        r = load_fixture('moves/daily_summary_response.json').first['summary']
-        r.delete_at(fixture_index)
-        r
+      context 'with no applied activity' do
+        let(:response) do
+          r = load_fixture('moves/daily_summary_response.json').first['summary']
+          r.delete_at(fixture_index)
+          r
+        end
+
+        it { expect(subject).to be 0.0 }
       end
 
-      it { expect(subject).to be 0.0 }
+      context 'with response nil' do
+        let(:response) { nil }
+        it { expect(subject).to be 0.0 }
+      end
+
+      context 'with response empty array' do
+        let(:response) { [] }
+        it { expect(subject).to be 0.0 }
+      end
     end
   end
 

@@ -3,6 +3,7 @@ class Lifelog
     require 'lifelog/dom/value/moves/summary'
     require 'lifelog/dom/value/moves/place'
     require 'lifelog/dom/value/moves/move'
+    require 'lifelog/dom/value/moves/referer'
 
     def initialize response
       @response = response

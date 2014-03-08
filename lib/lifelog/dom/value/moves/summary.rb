@@ -1,6 +1,9 @@
 class Lifelog
   class Dom::Value::Moves::Summary < Dom::Value::Moves
     include Maybe
+    def initialize response
+      @response = maybe(response)
+    end
 
     def walk
       maybe(pick('wlk'))['distance'].to_f / km

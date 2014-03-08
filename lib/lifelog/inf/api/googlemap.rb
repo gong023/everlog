@@ -7,8 +7,8 @@ class Lifelog
     end
 
     def screen_name(lat, lon)
-      Geocode.search("#{lat},#{lon}").first.formatted_address
-    rescue
+      Geocoder.search("#{lat},#{lon}").first.formatted_address
+    rescue => e
       ''
     end
   end
