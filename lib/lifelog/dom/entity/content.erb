@@ -37,20 +37,21 @@
     <h1># Moves</h1>
     <h2>## Summary</h2>
     <ul>
-      <li>Walk: <%= @moves['summary']['walk'] %>km</li>
-      <li>Cycle: <%= @moves['summary']['cycle'] %>km</li>
-      <li>Transport: <%= @moves['summary']['transport'] %>km</li>
-      <li><%= @moves['summary']['cal'] %>cal</li>
+      <li>Walk: <%= @moves[:summary].walk %>km</li>
+      <li>Cycle: <%= @moves[:summary].cycle %>km</li>
+      <li>Transport: <%= @moves[:summary].transport %>km</li>
+      <li><%= @moves[:summary].cal %>cal</li>
     </ul>
     <h2>## Detail</h2>
-    <% @moves['activity'].each do |act| %>
-      <h3><%= act['place'] %></h3>
-      <% if act['move'].instance_of?(Array) %>
-        <% act['move'].each do |m| %>
+    <% @moves[:storyline].each do |story| %>
+      <% if story.name === 'place' %>
+        <h3><%= story.screen_name %></h3>
+      <% elsif story.name === 'move' %>
+        <% story.to_a.each do |s| %>
           <ul>
-            <li><%= m['action'] %></li>
-            <li><%= m['time'] %></li>
-            <li><%= m['distance'] %>km</li>
+            <li><%= s.action %></li>
+            <li><%= "#{s.start_time}~#{s.end_time}(#{s.duration}min)" %></li>
+            <li><%= s.distance %>km</li>
           </ul>
         <% end %>
       <% end %>

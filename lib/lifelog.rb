@@ -4,8 +4,6 @@ require 'lifelog/inf'
 require 'lifelog/dom'
 require 'lifelog/app'
 
-require 'lifelog/moves'
-
 Dotenv.load
 
 class Lifelog
@@ -16,6 +14,7 @@ class Lifelog
     content.push(:twitter, App::Twitter.fetch_since(one_day_ago))
     content.push(:hatena, App::Hatena.fetch_since(one_day_ago))
     content.push(:github, App::Github.fetch_since(one_day_ago))
+    content.push(:moves, App::Moves.fetch_since(one_day_ago))
 
     if to_boolean(dry)
       puts content.render
