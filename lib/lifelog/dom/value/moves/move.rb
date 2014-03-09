@@ -7,7 +7,8 @@ class Lifelog
     end
 
     def duration
-      round_off((maybe(@response['duration']).to_f / 60) % 60)
+      duration = maybe(@response['duration'])
+      round_off((duration.to_f / 60))
     end
 
     def start_time
