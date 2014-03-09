@@ -7,7 +7,6 @@ gem 'moves'
 gem 'geocoder'
 gem 'hatena-bookmark'
 gem 'octokit'
-gem 'naught'
 group :development do
   gem 'guard-rspec', require: false
 end
