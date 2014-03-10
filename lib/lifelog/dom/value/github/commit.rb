@@ -1,10 +1,6 @@
 class Lifelog
-  class Dom::Value::Github::Commit
+  class Dom::Value::Github::Commit < Dom::Value::Github
     include Maybe
-
-    def initialize response
-      @response = response
-    end
 
     def url
       maybe(@response.rels[:html].href).to_s

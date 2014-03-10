@@ -27,9 +27,5 @@ class Lifelog
     def pick_today response
       DateTime.parse(response).to_time.to_s
     end
-
-    def parse_to_His date
-      date.sub(/\d{4}-\d{2}-\d{2}\ /, '').match(/\d{2}:\d{2}/).to_s
-    end
   end
 end

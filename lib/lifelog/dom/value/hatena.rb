@@ -1,10 +1,6 @@
 class Lifelog
-  class Dom::Value::Hatena
+  class Dom::Value::Hatena < Dom::Value
     include Maybe
-
-    def initialize response
-      @response = response
-    end
 
     def title
       maybe(@response['title']).to_s

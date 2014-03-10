@@ -1,5 +1,5 @@
 class Lifelog
-  class Dom::Value::Github::Repository_Activity
+  class Dom::Value::Github::Repository_Activity < Dom::Value::Github
     include Maybe
 
     def initialize(repo_name, repo_commits)

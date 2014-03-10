@@ -5,7 +5,7 @@
     <h1># Twitter</h1>
     <ul>
       <% @twitter.each do |t| %>
-        <li><%= t.tweet %></li>
+        <li><%= t.tweet %> (<%= t.created_at %>)</li>
       <% end %>
     </ul>
   <% end %>
