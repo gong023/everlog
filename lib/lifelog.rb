@@ -15,6 +15,7 @@ class Lifelog
     content.push(:hatena, App::Hatena.fetch_since(one_day_ago))
     content.push(:github, App::Github.fetch_since(one_day_ago))
     content.push(:moves, App::Moves.fetch_since(one_day_ago))
+    content.push(:animetick, App::Animetick.fetch_since(one_day_ago))
 
     if to_boolean(dry)
       puts content.render

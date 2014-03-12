@@ -33,6 +33,18 @@
     </ul>
   <% end %>
 
+  <% unless @animetick.nil? || @animetick.empty? %>
+    <h1># Animetick</h1>
+    <ul>
+      <% @animetick.each do |a| %>
+        <li><%= a.title %> #<%= a.count %></li>
+        <ul>
+          <li><%= a.sub_title %></li>
+        </ul>
+      <% end %>
+    </ul>
+  <% end %>
+
   <% unless @moves.nil? || @moves.empty? %>
     <h1># Moves</h1>
     <h2>## Summary</h2>
