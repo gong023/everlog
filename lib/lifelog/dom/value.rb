@@ -4,6 +4,7 @@ class Lifelog
     require 'lifelog/dom/value/hatena'
     require 'lifelog/dom/value/github'
     require 'lifelog/dom/value/moves'
+    require 'lifelog/dom/value/animetick'
 
     def initialize(response)
       @response = response

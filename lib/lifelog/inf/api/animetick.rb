@@ -6,8 +6,10 @@ class Lifelog
       @client ||= Faraday.new(url: 'http://animetick.net')
     end
 
-    def ticket_list params = {}
-      request(:get, '/ticket/list.json', params)['list']
+    def ticket_list
+      request(:get, '/ticket/list.json', { watched: true })['list']
+    rescue
+      []
     end
 
     private
