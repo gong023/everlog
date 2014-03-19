@@ -18,10 +18,23 @@ class Lifelog
       @note ||= ::Evernote::EDAM::Type::Note.new
     end
 
+    def notebook
+      @notebook ||= ::Evernote::EDAM::Type::Notebook.new
+    end
+
     def post_note(title, content)
       note.title = title
       note.content = content
       client.note_store.createNote(token, note)
+    end
+
+    def create_notebook title
+      notebook.name = title
+      client.note_store.createNotebook notebook
+    end
+
+    def notebooks
+      client.note_store.listNotebooks
     end
   end
 end

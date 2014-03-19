@@ -43,4 +43,19 @@ EOS
 
     it { expect { instance.post_note('title', content) }.not_to raise_error }
   end
+
+  describe '#create_notebook' do
+    subject { instance.create_notebook(title) }
+
+    context 'duplicate notebook title' do
+      let(:title) { 'from rspec' }
+      it { expect { subject }.to raise_error ::Evernote::EDAM::Error::EDAMUserException }
+    end
+  end
+
+  describe '#notebooks' do
+    subject { instance.notebooks }
+
+    it { expect(subject).to be_instance_of Array }
+  end
 end

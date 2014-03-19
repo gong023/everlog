@@ -20,8 +20,8 @@ class Lifelog
     if to_boolean(dry)
       puts content.render
     else
-      evernote_api = Inf::Api::Evernote.new(to_boolean(evernote_sandbox))
-      evernote_api.post_note("[#{Date.today}]日記", content.render)
+      evernote_repository = Dom::Repository::Evernote.new(to_boolean(evernote_sandbox))
+      evernote_repository.save("[#{Date.today}]日記", content.render)
     end
   end
 
