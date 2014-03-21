@@ -1,74 +1,167 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE en-note SYSTEM 'http://xml.evernote.com/pub/enml2.dtd'>
 <en-note>
-<div>today is <%= @weather.condition %>. temp max / min is <%= @weather.max_temp %>℃ / <%= @weather.min_temp %>℃</div>
 
-  <% unless @twitter.nil? || @twitter.empty? %>
-    <h1>Twitter</h1>
-    <ul>
+  <table border="0" cellspacing="0" cellpadding="9">
+    <tr bgcolor="ffaa33">
+      <td></td>
+      <td><font size="+1" color="ffffff">Weather</font></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><font color="5E5E5E">Tokyo is <%= @weather.condition %>.</font></td>
+      <td><font color="5E5E5E">Temp is <%= @weather.max_temp %>℃ / <%= @weather.min_temp %>℃</font></td>
+      <td></td>
+    </tr>
+
+    <% unless @twitter.nil? || @twitter.empty? %>
+      <tr><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td></tr>
+      <tr bgcolor="a4cce0">
+        <td></td>
+        <td><font size="+1" color="ffffff">Twitter</font></td>
+        <td></td>
+        <td></td>
+      </tr>
       <% @twitter.each do |t| %>
-        <li><%= t.tweet %> (<%= t.created_at %>)</li>
+        <tr>
+          <td></td>
+          <td colspan="2"><font color="5E5E5E"><%= t.tweet %></font></td>
+          <td><font color="5E5E5E"><%= t.created_at %></font></td>
+        </tr>
       <% end %>
-    </ul>
-  <% end %>
+    <% end %>
 
-  <% unless @hatena.nil? || @hatena.empty? %>
-    <h1>Hatena Bookmark</h1>
-    <ul>
+    <% unless @hatena.nil? || @hatena.empty? %>
+      <tr><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td></tr>
+      <tr bgcolor="4a80c7">
+        <td></td>
+        <td colspan="2"><font size="+1" color="ffffff">HatenaBookmark</font></td>
+        <td></td>
+      </tr>
       <% @hatena.each do |h| %>
-        <li><a href="<%= h.link %>"><%= h.title %></a></li>
+        <tr>
+          <td></td>
+          <td colspan="2">
+            <font color="5E5E5E"><a href="<%= h.link %>"><%= h.title %></a></font>
+          </td>
+          <td></td>
+        </tr>
       <% end %>
-    </ul>
-  <% end %>
+    <% end %>
 
-  <% unless @github.nil? || @github.empty? %>
-    <h1>Github</h1>
-    <ul>
+    <% unless @github.nil? || @github.empty? %>
+      <tr><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td></tr>
+      <tr bgcolor="B0C0D0">
+        <td></td>
+        <td><font size="+1" color="ffffff">Github</font></td>
+        <td></td>
+        <td></td>
+      </tr>
       <% @github.each do |g| %>
-        <li><%= g.repo_name %></li>
+        <tr>
+          <td></td>
+          <td><font color="5E5E5E"><%= g.repo_name %></font></td>
+          <td></td>
+          <td></td>
+        </tr>
         <% g.commits.each do |commit| %>
-          <ul>
-            <li><a href="<%= commit.url %>"><%= commit.message %></a></li>
-          </ul>
-        <% end %>
-      <% end %>
-    </ul>
-  <% end %>
-
-  <% unless @animetick.nil? || @animetick.empty? %>
-    <h1>Animetick</h1>
-    <ul>
-      <% @animetick.each do |a| %>
-        <li><%= a.title %> #<%= a.count %></li>
-        <ul>
-          <li><%= a.sub_title %></li>
-        </ul>
-      <% end %>
-    </ul>
-  <% end %>
-
-  <% unless @moves.nil? || @moves.empty? %>
-    <h1>Moves</h1>
-    <h2>Summary</h2>
-    <ul>
-      <li>Walk: <%= @moves[:summary].walk %>km</li>
-      <li>Cycle: <%= @moves[:summary].cycle %>km</li>
-      <li><%= @moves[:summary].cal %>cal</li>
-    </ul>
-    <h2>Detail</h2>
-    <% @moves[:storyline].each do |story| %>
-      <% if story.name === 'place' %>
-        <h3><%= story.screen_name %></h3>
-      <% elsif story.name === 'move' %>
-        <% story.to_a.each do |s| %>
-          <ul>
-            <li><%= s.action %></li>
-            <li><%= "#{s.start_time}~#{s.end_time}(#{s.duration}min)" %></li>
-            <li><%= s.distance %>km</li>
-          </ul>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>
+              <font color="5E5E5E"> <a href="<%= commit.url %>"><%= commit.message %></a></font>
+            </td>
+          </tr>
         <% end %>
       <% end %>
     <% end %>
-  <% end %>
+
+    <% unless @animetick.nil? || @animetick.empty? %>
+      <tr><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td></tr>
+      <tr bgcolor="f75c24">
+        <td></td>
+        <td><font size="+1" color="ffffff">Animetick</font></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <% @animetick.each do |a| %>
+        <tr>
+          <td></td>
+          <td colspan="2"><font color="5E5E5E"><%= a.title %> #<%= a.count %></font></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td colspan="2"><font color="5E5E5E"><%= a.sub_title %></font></td>
+        </tr>
+      <% end %>
+    <% end %>
+
+    <% unless @moves.nil? || @moves.empty? %>
+      <tr><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td></tr>
+      <tr bgcolor="84e388">
+        <td></td>
+        <td><font size="+1" color="ffffff"> Moves</font></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td><font color="5E5E5E">summary</font></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td><font color="5E5E5E">Walk</font></td>
+        <td><font color="5E5E5E"><%= @moves[:summary].walk %>km</font></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td><font color="5E5E5E">Cycle</font></td>
+        <td><font color="5E5E5E"><%= @moves[:summary].cycle %>km</font></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><font color="5E5E5E"><%= @moves[:summary].cal %>cal</font></td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td><font color="5E5E5E">storyline</font></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <% @moves[:storyline].each do |story| %>
+        <% if story.name === 'place' %>
+          <tr>
+            <td></td>
+            <td></td>
+            <td colspan="2"><font color="5E5E5E"><%= story.screen_name %></font></td>
+          </tr>
+        <% elsif story.name === 'move' %>
+          <% story.to_a.each do |s| %>
+            <tr>
+              <td></td>
+              <td></td>
+              <td><font color="5E5E5E">↓ <%= s.action %></font></td>
+              <td>
+                <font color="5E5E5E"><%= "#{s.start_time} ~ #{s.end_time}(#{s.duration}min)" %></font>
+                <div><font color="5E5E5E"><%= s.distance %>km</font></div>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </table>
 
 </en-note>
