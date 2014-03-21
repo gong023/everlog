@@ -7,6 +7,7 @@ class Lifelog
     require 'lifelog/inf/api/googlemap'
     require 'lifelog/inf/api/moves'
     require 'lifelog/inf/api/animetick'
+    require 'lifelog/inf/api/wunderground'
 
     def client
       raise 'no implemented.'
