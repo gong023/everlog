@@ -11,6 +11,7 @@ class Lifelog
     one_day_ago = (DateTime.now - 1).to_time
 
     content = Dom::Entity::Content.new
+    content.push(:weather, App::Weather.yesterday)
     content.push(:twitter, App::Twitter.fetch_since(one_day_ago))
     content.push(:hatena, App::Hatena.fetch_since(one_day_ago))
     content.push(:github, App::Github.fetch_since(one_day_ago))

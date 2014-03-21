@@ -1,8 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE en-note SYSTEM 'http://xml.evernote.com/pub/enml2.dtd'>
 <en-note>
+<div>today is <%= @weather.condition %>. temp max / min is <%= @weather.max_temp %>℃ / <%= @weather.min_temp %>℃</div>
+
   <% unless @twitter.nil? || @twitter.empty? %>
-    <h1># Twitter</h1>
+    <h1>Twitter</h1>
     <ul>
       <% @twitter.each do |t| %>
         <li><%= t.tweet %> (<%= t.created_at %>)</li>
@@ -11,7 +13,7 @@
   <% end %>
 
   <% unless @hatena.nil? || @hatena.empty? %>
-    <h1># Hatena Bookmark</h1>
+    <h1>Hatena Bookmark</h1>
     <ul>
       <% @hatena.each do |h| %>
         <li><a href="<%= h.link %>"><%= h.title %></a></li>
@@ -20,7 +22,7 @@
   <% end %>
 
   <% unless @github.nil? || @github.empty? %>
-    <h1># Github</h1>
+    <h1>Github</h1>
     <ul>
       <% @github.each do |g| %>
         <li><%= g.repo_name %></li>
@@ -34,7 +36,7 @@
   <% end %>
 
   <% unless @animetick.nil? || @animetick.empty? %>
-    <h1># Animetick</h1>
+    <h1>Animetick</h1>
     <ul>
       <% @animetick.each do |a| %>
         <li><%= a.title %> #<%= a.count %></li>
@@ -46,15 +48,14 @@
   <% end %>
 
   <% unless @moves.nil? || @moves.empty? %>
-    <h1># Moves</h1>
-    <h2>## Summary</h2>
+    <h1>Moves</h1>
+    <h2>Summary</h2>
     <ul>
       <li>Walk: <%= @moves[:summary].walk %>km</li>
       <li>Cycle: <%= @moves[:summary].cycle %>km</li>
-      <li>Transport: <%= @moves[:summary].transport %>km</li>
       <li><%= @moves[:summary].cal %>cal</li>
     </ul>
-    <h2>## Detail</h2>
+    <h2>Detail</h2>
     <% @moves[:storyline].each do |story| %>
       <% if story.name === 'place' %>
         <h3><%= story.screen_name %></h3>
