@@ -1,10 +1,13 @@
 task default: :post_daily
 
 $:.push File.dirname(__FILE__) + '/lib/'
+require 'lifelog'
 
 task :post_daily do
-  require 'lifelog'
-  ENV['dry'] ||= 'true'
-  ENV['evernote_sandbox'] ||= 'true'
-  Lifelog.daily(ENV['dry'], ENV['evernote_sandbox'])
+  ENV['output'] ||= 'local'
+  Lifelog.daily(ENV['output'])
+end
+
+task :upload_sample do
+  Lifelog.upload_sample
 end
