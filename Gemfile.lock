@@ -38,6 +38,9 @@ GEM
     http (0.5.0)
       http_parser.rb
     http_parser.rb (0.6.0)
+    httparty (0.13.0)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     json (1.8.1)
     listen (2.6.2)
       celluloid (>= 0.15.2)
@@ -51,6 +54,7 @@ GEM
     mime-types (2.1)
     moves (0.0.4)
       rest-client
+    multi_xml (0.5.5)
     multipart-post (2.0.0)
     naught (1.0.0)
     nio4r (1.0.0)
@@ -94,6 +98,10 @@ GEM
       memoizable (~> 0.4.0)
       naught (~> 1.0)
       simple_oauth (~> 0.2.0)
+    wunderground (1.2.0)
+      addressable
+      httparty (> 0.6.0)
+      json (> 1.4.0)
 
 PLATFORMS
   ruby
@@ -108,3 +116,4 @@ DEPENDENCIES
   octokit
   rspec
   twitter
+  wunderground
