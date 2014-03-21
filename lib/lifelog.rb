@@ -23,7 +23,8 @@ class Lifelog
     else
       is_evernote_sandbox = output == 'evernote_sandbox'
       evernote_repository = Dom::Repository::Evernote.new(is_evernote_sandbox)
-      evernote_repository.save("[#{Date.today}]日記", content.render)
+      title = "Lifelog #{(Date.today - 1).to_s.gsub(/-/, '/')}"
+      evernote_repository.save(title, content.render)
     end
   end
 
