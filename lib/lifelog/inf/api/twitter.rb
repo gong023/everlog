@@ -12,9 +12,15 @@ class Lifelog
     end
 
     def timeline
-      client.user_timeline('gong023', { count: 200 })
+      client.user_timeline(screen_name, { count: 200 })
     rescue
       []
+    end
+
+    def screen_name
+      client.user.screen_name
+    rescue
+      ''
     end
   end
 end
