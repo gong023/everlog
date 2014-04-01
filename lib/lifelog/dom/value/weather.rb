@@ -11,7 +11,8 @@ class Lifelog
     end
 
     def condition
-      maybe(icons.each.max).to_s
+      cond = maybe(icons.each.max).to_s
+      cond == 'unknown' ? 'sunny' : cond
     end
 
     private
