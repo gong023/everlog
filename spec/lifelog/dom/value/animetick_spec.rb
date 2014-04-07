@@ -40,5 +40,10 @@ describe Lifelog::Dom::Value::Animetick do
       subject { instance.updated_at }
       it { expect(subject).to eq DateTime.new(2014, 3, 12, 21, 20, 11, '+9').to_time }
     end
+
+    describe '#updated_at_screen' do
+      subject { instance.updated_at_screen }
+      it { expect(subject).to eq '21:20' }
+    end
   end
 end

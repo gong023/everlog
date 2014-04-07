@@ -17,5 +17,9 @@ class Lifelog
     def updated_at
       DateTime.parse(@response['updated_at']).to_time
     end
+
+    def updated_at_screen
+      parse_to_His(maybe(@response['updated_at']).to_s)
+    end
   end
 end
