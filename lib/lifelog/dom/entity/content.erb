@@ -3,18 +3,20 @@
 <en-note>
 
   <table border="0" cellspacing="0" cellpadding="9">
-    <tr bgcolor="ffaa33">
-      <td></td>
-      <td><font size="+1" color="ffffff">Weather</font></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><font color="5E5E5E">Tokyo is <%= @weather.condition %>.</font></td>
-      <td><font color="5E5E5E">Temp is <%= @weather.max_temp %>℃ / <%= @weather.min_temp %>℃</font></td>
-      <td></td>
-    </tr>
+    <% unless @weather.nil? || @weather.empty? %>
+      <tr bgcolor="ffaa33">
+        <td></td>
+        <td><font size="+1" color="ffffff">Weather</font></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><font color="5E5E5E">Tokyo is <%= @weather.condition %>.</font></td>
+        <td><font color="5E5E5E">Temp is <%= @weather.max_temp %>℃ / <%= @weather.min_temp %>℃</font></td>
+        <td></td>
+      </tr>
+    <% end %>
 
     <% unless @twitter.nil? || @twitter.empty? %>
       <tr><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td></tr>
