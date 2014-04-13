@@ -1,7 +1,9 @@
 require 'spec_helper'
 
 describe Lifelog::Inf::Api::Github do
-  let(:instance) { described_class.new }
+  let(:instance) do
+    described_class.new(double('config', access_secret: ENV['github_access_secret']))
+  end
 
   describe '#client' do
     it 'memo @client' do

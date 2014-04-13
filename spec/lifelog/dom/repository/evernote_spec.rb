@@ -1,7 +1,10 @@
 require 'spec_helper'
 
 describe Lifelog::Dom::Repository::Evernote do
-  let(:instance) { described_class.new(true) }
+  let(:instance) do
+    config = double('config', access_secret: ENV['evernote_sandbox_access_token'])
+    described_class.new(true, config)
+  end
 
   describe '#get_guid_forcibly' do
     subject { instance.get_guid_forcibly notebook_name }

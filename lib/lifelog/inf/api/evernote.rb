@@ -2,16 +2,13 @@ class Lifelog
   class Inf::Api::Evernote < Inf::Api
     require 'evernote_oauth'
 
-    def initialize sandbox
-      @sandbox = sandbox
-    end
-
-    def token
-      @sandbox ? ENV['evernote_sandbox_access_token'] : ENV['evernote_access_token']
+    def initialize(is_sandbox, config)
+      @is_sandbox = is_sandbox
+      @config = config
     end
 
     def client
-      @client ||= EvernoteOAuth::Client.new(token: token, sandbox: @sandbox)
+      @client ||= EvernoteOAuth::Client.new(token: @config.access_secret, sandbox: @is_sandbox)
     end
 
     def note
@@ -25,7 +22,7 @@ class Lifelog
     def post_note(title, content)
       note.title = title
       note.content = content
-      client.note_store.createNote(token, note)
+      client.note_store.createNote(@config.access_secret, note)
     end
 
     def create_notebook title

@@ -1,9 +1,9 @@
 class Lifelog
-  class Inf::Api::Wunderground
+  class Inf::Api::Wunderground < Inf::Api
     require 'wunderground'
 
     def client
-      @client ||= Wunderground.new(ENV['wunderground_token'], throws_exceptions: true)
+      @client ||= Wunderground.new(@config.access_secret, throws_exceptions: true)
     end
 
     def yesterday place

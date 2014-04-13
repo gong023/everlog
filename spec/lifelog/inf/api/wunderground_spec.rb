@@ -1,7 +1,9 @@
 require 'spec_helper'
 
 describe Lifelog::Inf::Api::Wunderground do
-  let(:instance) { described_class.new }
+  let(:instance) do
+    described_class.new(double('config', access_secret: ENV['wunderground_token']))
+  end
 
   describe '#yesterday' do
     it { expect { instance.yesterday('Tokyo') }.not_to raise_error }

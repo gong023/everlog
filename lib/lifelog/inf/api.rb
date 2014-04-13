@@ -9,6 +9,10 @@ class Lifelog
     require 'lifelog/inf/api/animetick'
     require 'lifelog/inf/api/wunderground'
 
+    def initialize config
+      @config = config
+    end
+
     def client
       raise 'no implemented.'
     end

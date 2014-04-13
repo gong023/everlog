@@ -15,8 +15,8 @@ class Lifelog
     private
     def request(method, endpoint, params = {})
       response = client.send(method, endpoint, params) do |req|
-        req['Cookie'] = "_animetick_session=#{ENV['animetick_session']}"
-        req['X-CSRF-Token'] = ENV['animetick_csrf_token']
+        req['Cookie'] = "_animetick_session=#{@config.access_token}"
+        req['X-CSRF-Token'] = @config.access_secret
       end
 
       JSON.parse(response.body)

@@ -6,6 +6,7 @@ class Lifelog
     require 'lifelog/app/moves'
     require 'lifelog/app/animetick'
     require 'lifelog/app/weather'
+    require 'lifelog/app/evernote'
 
     def self.fetch_since
       raise 'no implemented.'

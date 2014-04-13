@@ -2,10 +2,6 @@ class Lifelog
   class Inf::Api::Twitter < Inf::Api
     require 'twitter'
 
-    def initialize config
-      @config = config
-    end
-
     def client
       @client ||= ::Twitter::REST::Client.new do |config|
         config.consumer_key        = @config.consumer_key

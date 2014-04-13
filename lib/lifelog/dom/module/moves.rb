@@ -1,7 +1,11 @@
 class Lifelog
   class Dom::Module::Moves
+    def initialize config
+      @config = config
+    end
+
     def moves_api
-      @moves_api ||= Inf::Api::Moves.new
+      @moves_api ||= Inf::Api::Moves.new(@config)
     end
 
     def storyline

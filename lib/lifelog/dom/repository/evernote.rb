@@ -2,12 +2,13 @@ class Lifelog
   class Dom::Repository::Evernote < Dom::Repository
     TARGET = 'lifelog'
 
-    def initialize sandbox
-      @sandbox = sandbox
+    def initialize(is_sandbox, config)
+      @is_sandbox = is_sandbox
+      @config = config
     end
 
     def api_client
-      @api_client ||= Inf::Api::Evernote.new(@sandbox)
+      @api_client ||= Inf::Api::Evernote.new(@is_sandbox, @config)
     end
 
     def save(title, content)

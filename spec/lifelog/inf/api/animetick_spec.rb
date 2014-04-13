@@ -1,7 +1,10 @@
 require 'spec_helper'
 
 describe Lifelog::Inf::Api::Animetick do
-  let(:instance) { described_class.new }
+  let(:instance) do
+    config = double('config', access_token: ENV['animetick_session'], access_secret: ENV['animetick_csrf_token'])
+    described_class.new(config)
+  end
 
   describe '#client' do
     it 'memo @client' do

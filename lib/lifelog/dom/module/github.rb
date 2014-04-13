@@ -1,7 +1,12 @@
 class Lifelog
   class Dom::Module::Github
+
+    def initialize api_config
+      @api_config = api_config
+    end
+
     def api_client
-      @api_client ||= Inf::Api::Github.new
+      @api_client ||= Inf::Api::Github.new(@api_config)
     end
 
     def repo_names
@@ -17,7 +22,7 @@ class Lifelog
     def commits(repo, date)
       response = api_client.commits_on(repo, date)
       return nil if response.empty?
-      response.map { |r| Dom::Value::Github::Commit.new(r)}.reverse
+      response.map { |r| Dom::Value::Github::Commit.new(r) }.reverse
     end
   end
 end

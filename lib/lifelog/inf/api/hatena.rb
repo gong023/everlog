@@ -4,10 +4,10 @@ class Lifelog
 
     def client
       @client ||= ::Hatena::Bookmark.new(
-        consumer_key:    ENV['hatena_consumer_key'],
-        consumer_secret: ENV['hatena_consumer_sec'],
-        request_token:   ENV['hatena_access_token'],
-        request_secret:  ENV['hatena_access_secret']
+        consumer_key:    @config.consumer_key,
+        consumer_secret: @config.consumer_secret,
+        request_token:   @config.access_token,
+        request_secret:  @config.access_secret
       )
     end
 

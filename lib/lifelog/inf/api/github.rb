@@ -3,7 +3,7 @@ class Lifelog
     require 'octokit'
 
     def client
-      @client ||= Octokit::Client.new(access_token: ENV['github_access_secret'])
+      @client ||= Octokit::Client.new(access_token: @config.access_secret)
     end
 
     def repos
