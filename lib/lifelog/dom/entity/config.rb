@@ -5,6 +5,8 @@ class Lifelog
     THIRD_PARTY.each do |service|
       const_set service.capitalize, Class.new {
         class << self
+          attr_accessor :consumer_key
+          attr_accessor :consumer_secret
           attr_accessor :access_token
           attr_accessor :access_secret
         end
