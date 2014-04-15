@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Lifelog::Dom::Value::Hatena do
+describe Everlog::Dom::Value::Hatena do
   let(:instance) { described_class.new(response) }
 
   describe '#title' do

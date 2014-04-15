@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe Lifelog::App::Hatena do
+describe Everlog::App::Hatena do
   describe '.fetch_since' do
     subject { described_class.fetch_since (DateTime.now - 1).to_time }
-    before { Lifelog::Inf::Api::Hatena.any_instance.stub(:feed_entry).and_return(response) }
+    before { Everlog::Inf::Api::Hatena.any_instance.stub(:feed_entry).and_return(response) }
 
     let(:valid_date_feed) do
       { 'title' => 'hello', 'link' => [{'href' => 'link'}], 'issued' => DateTime.now.to_time }

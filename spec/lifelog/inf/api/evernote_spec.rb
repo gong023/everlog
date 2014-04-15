@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Lifelog::Inf::Api::Evernote do
+describe Everlog::Inf::Api::Evernote do
   let(:instance) do
     config = double('config', access_secret: ENV['evernote_sandbox_access_token'])
     described_class.new(true, config)

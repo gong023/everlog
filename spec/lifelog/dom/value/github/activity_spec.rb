@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Lifelog::Dom::Value::Github::Repository_Activity do
+describe Everlog::Dom::Value::Github::Repository_Activity do
   let(:instance) { described_class.new(repo_name, repo_commits) }
 
   describe '#repo_name' do

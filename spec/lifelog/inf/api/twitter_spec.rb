@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Lifelog::Inf::Api::Twitter do
+describe Everlog::Inf::Api::Twitter do
   let(:instance) do
     config = double('config',
                     consumer_key: ENV['twitter_consumer_key'],

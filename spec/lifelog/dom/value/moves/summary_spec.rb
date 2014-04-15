@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Lifelog::Dom::Value::Moves::Summary do
+describe Everlog::Dom::Value::Moves::Summary do
   let(:instance) { described_class.new(response) }
 
   shared_examples_for 'return fixture val with normal case and return 0.0 with abnormal case' do

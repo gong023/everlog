@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Lifelog::Dom::Module::Moves do
+describe Everlog::Dom::Module::Moves do
   let(:instance) do
     described_class.new(double('config', access_secret: ENV['moves_access_token']))
   end
@@ -16,8 +16,8 @@ describe Lifelog::Dom::Module::Moves do
         load_fixture('moves/daily_storyline_response.json').first['segments']
       end
 
-      it { expect(subject.first).to be_instance_of Lifelog::Dom::Value::Moves::Referer::Place }
-      it { expect(subject[1]).to be_instance_of Lifelog::Dom::Value::Moves::Referer::Move }
+      it { expect(subject.first).to be_instance_of Everlog::Dom::Value::Moves::Referer::Place }
+      it { expect(subject[1]).to be_instance_of Everlog::Dom::Value::Moves::Referer::Move }
     end
   end
 
@@ -31,7 +31,7 @@ describe Lifelog::Dom::Module::Moves do
         load_fixture('moves/daily_summary_response.json').first['summary']
       end
 
-      it { expect(subject).to be_instance_of Lifelog::Dom::Value::Moves::Summary }
+      it { expect(subject).to be_instance_of Everlog::Dom::Value::Moves::Summary }
     end
   end
 end

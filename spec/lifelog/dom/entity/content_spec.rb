@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Lifelog::Dom::Entity::Content do
+describe Everlog::Dom::Entity::Content do
   let(:instance) { described_class.new }
 
   describe '#push' do

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Lifelog::Dom::Entity::Config do
+describe Everlog::Dom::Entity::Config do
   subject { described_class }
 
   context 'normal' do

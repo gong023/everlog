@@ -1,5 +1,5 @@
 $:.push File.dirname(File.dirname(__FILE__) + "/lib/")
-require 'lifelog'
+require 'everlog'
 require 'dotenv'
 Dotenv.load(File.dirname(__FILE__) + '/.env.test')
 

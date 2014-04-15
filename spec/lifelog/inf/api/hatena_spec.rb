@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Lifelog::Inf::Api::Hatena do
+describe Everlog::Inf::Api::Hatena do
   let(:instance) do
     config = double('config',
                     consumer_key: ENV['hatena_consumer_key'],

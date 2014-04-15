@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Lifelog::Inf::Api::Animetick do
+describe Everlog::Inf::Api::Animetick do
   let(:instance) do
     config = double('config', access_token: ENV['animetick_session'], access_secret: ENV['animetick_csrf_token'])
     described_class.new(config)

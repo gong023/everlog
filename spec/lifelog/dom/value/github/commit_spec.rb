@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Lifelog::Dom::Value::Github::Commit do
+describe Everlog::Dom::Value::Github::Commit do
   let(:instance) { described_class.new(response) }
 
   describe '#url' do

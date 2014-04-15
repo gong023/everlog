@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Lifelog::Dom::Value::Weather do
+describe Everlog::Dom::Value::Weather do
   let(:valid_response) do
     load_fixture('wunderground/yesterday_response.json')['history']
   end

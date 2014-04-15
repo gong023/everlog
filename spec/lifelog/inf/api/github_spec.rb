@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Lifelog::Inf::Api::Github do
+describe Everlog::Inf::Api::Github do
   let(:instance) do
     described_class.new(double('config', access_secret: ENV['github_access_secret']))
   end
@@ -18,7 +18,7 @@ describe Lifelog::Inf::Api::Github do
 
   describe '#commits_on' do
     subject { instance.commits_on(repo, date) }
-    let(:repo) { 'lifelog' }
+    let(:repo) { 'everlog' }
 
     context 'with commit existing' do
       let(:date) { '2014-01-17' }

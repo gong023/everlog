@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Lifelog::Inf::Api::Moves do
+describe Everlog::Inf::Api::Moves do
   let(:instance) do
     described_class.new(double('config', access_secret: ENV['moves_access_token']))
   end

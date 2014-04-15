@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Lifelog::Dom::Repository::Evernote do
+describe Everlog::Dom::Repository::Evernote do
   let(:instance) do
     config = double('config', access_secret: ENV['evernote_sandbox_access_token'])
     described_class.new(true, config)
@@ -18,7 +18,7 @@ describe Lifelog::Dom::Repository::Evernote do
       let(:notebook_name) { 'something not existing' }
       it do
         api_mock = double('api_client', { guid: 1 })
-        Lifelog::Inf::Api::Evernote.any_instance.should_receive(:create_notebook).and_return(api_mock)
+        Everlog::Inf::Api::Evernote.any_instance.should_receive(:create_notebook).and_return(api_mock)
         expect(subject).to be 1
       end
     end

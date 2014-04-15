@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Lifelog::Dom::Value::Moves::Referer::Move do
+describe Everlog::Dom::Value::Moves::Referer::Move do
   let(:instance) { described_class.new(response) }
   let(:response) do
     load_fixture('moves/daily_storyline_response.json').first['segments'][1]

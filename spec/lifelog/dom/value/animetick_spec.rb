@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Lifelog::Dom::Value::Animetick do
+describe Everlog::Dom::Value::Animetick do
   let(:instance) { described_class.new(response) }
 
   context 'normal' do

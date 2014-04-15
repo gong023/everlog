@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Lifelog::Inf::Api::Wunderground do
+describe Everlog::Inf::Api::Wunderground do
   let(:instance) do
     described_class.new(double('config', access_secret: ENV['wunderground_token']))
   end

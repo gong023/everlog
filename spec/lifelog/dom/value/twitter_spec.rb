@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Lifelog::Dom::Value::Twitter do
+describe Everlog::Dom::Value::Twitter do
   let(:instance) { described_class.new(response) }
 
   describe '#tweet' do

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Lifelog::App::Animetick do
+describe Everlog::App::Animetick do
   describe '#fetch_since' do
     subject { described_class.fetch_since((DateTime.now - 1).to_time) }
 
