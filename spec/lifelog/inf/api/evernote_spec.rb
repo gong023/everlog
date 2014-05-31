@@ -37,7 +37,7 @@ EOS
 
     context 'duplicate notebook title' do
       let(:title) { 'from rspec' }
-      it { expect { subject }.to raise_error ::Evernote::EDAM::Error::EDAMUserException }
+      it { expect { subject }.to raise_error ::Everlog::EverlogInfrastructureEvernoteError }
     end
   end
 

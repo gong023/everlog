@@ -1,10 +1,8 @@
 require 'spec_helper'
 
 describe Everlog::App::Evernote do
-  let(:instance) { described_class.new }
-
   describe '#publish' do
-    subject { instance.publish('title', 'content', false) }
+    subject { described_class.publish('title', 'content', false) }
     before do
       Everlog::Dom::Repository::Evernote.any_instance.should_receive(:save).with('title', 'content')
     end

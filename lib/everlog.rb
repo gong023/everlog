@@ -19,7 +19,7 @@ class Everlog
     return @content.render if output == 'local'
     raise EverlogConfigError, 'evernote access_token not given' if access_token.nil?
 
-    Dom::Entity::Config.evernote.access_token = access_token
+    Dom::Entity::Config.evernote.access_secret = access_token
     App::Evernote.publish(title, @content.render, output)
   ensure
     Dom::Entity::Config.clear!

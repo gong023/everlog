@@ -23,15 +23,23 @@ class Everlog
       note.title = title
       note.content = content
       client.note_store.createNote(@config.access_secret, note)
+    rescue => e
+      raise EverlogInfrastructureEvernoteError, "post note error / class:#{e.class} code:#{e.errorCode}"
     end
 
     def create_notebook title
       notebook.name = title
       client.note_store.createNotebook notebook
+    rescue => e
+      raise EverlogInfrastructureEvernoteError, "create_notebook error / class:#{e.class} code:#{e.errorCode}"
     end
 
     def notebooks
       client.note_store.listNotebooks
+    rescue => e
+      raise EverlogInfrastructureEvernoteError, "notebooks error / class:#{e.class} code:#{e.errorCode}"
     end
   end
+
+  class EverlogInfrastructureEvernoteError < StandardError; end
 end
