@@ -9,7 +9,7 @@ class Everlog
 
   def push(service, option = {})
     setup_config(service.to_sym, option)
-    data = App.const_get(service.capitalize).fetch_since((DateTime.now -1).to_time)
+    data = App.const_get(service.capitalize).fetch_since((DateTime.now - 1).to_time)
     @content.push(service, data)
   ensure
     Dom::Entity::Config.clear!
