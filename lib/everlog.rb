@@ -20,7 +20,7 @@ class Everlog
     raise EverlogConfigError, 'evernote access_token not given' if access_token.nil?
 
     Dom::Entity::Config.evernote.access_token = access_token
-    Dom::App::Evernote.publish(title, @content.render, output)
+    App::Evernote.publish(title, @content.render, output)
   ensure
     Dom::Entity::Config.clear!
   end
