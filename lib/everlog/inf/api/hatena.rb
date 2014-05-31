@@ -13,8 +13,10 @@ class Everlog
 
     def feed_entry
       client.feed['feed']['entry']
-    rescue
-      []
+    rescue => e
+      raise InfrastructureHatenarError, "feed_entry error / #{e.message}"
     end
   end
+
+  class InfrastructureHatenarError < StandardError; end
 end

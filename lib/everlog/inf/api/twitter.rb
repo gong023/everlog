@@ -14,15 +14,15 @@ class Everlog
     def timeline
       client.user_timeline(screen_name, { count: 200 })
     rescue => e
-      raise EverlogInfrastructureTwitterError, "timeline error / #{e.message}"
+      raise InfrastructureTwitterError, "timeline error / #{e.message}"
     end
 
     def screen_name
       client.user.screen_name
     rescue => e
-      raise EverlogInfrastructureTwitterError, "screen_name error / #{e.message}"
+      raise InfrastructureTwitterError, "screen_name error / #{e.message}"
     end
   end
 
-  class EverlogInfrastructureTwitterError < StandardError; end
+  class InfrastructureTwitterError < StandardError; end
 end
