@@ -2,7 +2,6 @@ class Everlog
   class Dom::Entity::Aggregate
     class DailyReport < Dom::Entity
       def initialize
-        binding.pry
         @content = Content.new
       end
 

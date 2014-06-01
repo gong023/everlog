@@ -7,6 +7,7 @@ class Everlog
     require 'everlog/app/animetick'
     require 'everlog/app/weather'
     require 'everlog/app/evernote'
+    require 'everlog/app/daily'
 
     def self.fetch_since
       raise 'no implemented.'
