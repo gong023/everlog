@@ -8,8 +8,10 @@ class Everlog
 
     def screen_name(lat, lon)
       Geocoder.search("#{lat},#{lon}").first.formatted_address
-    rescue
-      ''
+    rescue => e
+      raise InfrastructureGoogleMapError, "screen_name error / #{e.message}"
     end
   end
+
+  class InfrastructureGoogleMapError < StandardError; end
 end
