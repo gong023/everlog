@@ -2,6 +2,7 @@ class Everlog
   class Dom::Entity
     require 'everlog/dom/entity/content'
     require 'everlog/dom/entity/config'
+    require 'everlog/dom/entity/aggregate/dailyreport'
     attr_reader :id
 
     def initialize id = 0
