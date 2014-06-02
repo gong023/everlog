@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Everlog::App::Weather do
+describe Everlog::Dom::Module::Weather do
 
   describe '.fetch_since' do
     subject { described_class.fetch_since('dummy') }

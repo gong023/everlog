@@ -1,5 +1,5 @@
 class Everlog
-  class App::Hatena < App
+  class Dom::Module::Hatena < Dom::Module
     def self.fetch_since date
       config = Dom::Entity::Config.hatena
       api_response = Inf::Api::Hatena.new(config).feed_entry

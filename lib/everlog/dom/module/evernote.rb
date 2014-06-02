@@ -1,5 +1,5 @@
 class Everlog
-  class App::Evernote < App
+  class Dom::Module::Evernote < Dom::Module
     def self.publish(title, content, output)
       config = Dom::Entity::Config.evernote
       is_sandbox = output != 'production'

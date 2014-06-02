@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Everlog::App::Evernote do
+describe Everlog::Dom::Module::Evernote do
   describe '#publish' do
     subject { described_class.publish('title', 'content', false) }
     before do

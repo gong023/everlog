@@ -1,5 +1,5 @@
 class Everlog
-  class App::Animetick < App
+  class Dom::Module::Animetick < Dom::Module
     def self.fetch_since date
       config = Dom::Entity::Config.animetick
       api_response = Inf::Api::Animetick.new(config).ticket_list

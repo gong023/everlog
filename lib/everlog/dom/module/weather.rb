@@ -1,5 +1,5 @@
 class Everlog
-  class App::Weather < App
+  class Dom::Module::Weather < Dom::Module
     def self.fetch_since(date)
       config = Dom::Entity::Config.wunderground
       api_response = Inf::Api::Wunderground.new(config).yesterday('Tokyo')

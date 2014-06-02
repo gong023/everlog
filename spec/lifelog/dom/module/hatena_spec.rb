@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Everlog::App::Hatena do
+describe Everlog::Dom::Module::Hatena do
   describe '.fetch_since' do
     subject { described_class.fetch_since (DateTime.now - 1).to_time }
     before { Everlog::Inf::Api::Hatena.any_instance.stub(:feed_entry).and_return(response) }
