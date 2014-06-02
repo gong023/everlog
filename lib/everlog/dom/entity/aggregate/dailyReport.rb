@@ -7,8 +7,7 @@ class Everlog
 
       def push(service, option)
         setup_config(service.to_sym, option)
-        # Appを参照するのはレイヤー化アーキテクチャに反しているので今のApp以下をもっと奥のレイヤーに落としたい
-        data = App.const_get(service.capitalize).fetch_since((DateTime.now - 1).to_time)
+        data = Dom::Module.const_get(service.capitalize).fetch_since((DateTime.now - 1).to_time)
         @content.push(service, data)
       ensure
         Config.clear!
