@@ -165,6 +165,27 @@
         <% end %>
       <% end %>
     <% end %>
+
+    <% unless @footer.nil?%>
+      <tr><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td></tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td style="text-align: right;" colspan="2"><font color="5E5E5E"><%= @footer.phrase %></font></td>
+      </tr>
+    <% end %>
   </table>
 
-</en-note>
+  </en-note>

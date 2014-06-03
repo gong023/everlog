@@ -6,6 +6,7 @@ class Everlog
     require 'everlog/dom/value/moves'
     require 'everlog/dom/value/animetick'
     require 'everlog/dom/value/weather'
+    require 'everlog/dom/value/footer'
 
     def initialize(response)
       @response = response

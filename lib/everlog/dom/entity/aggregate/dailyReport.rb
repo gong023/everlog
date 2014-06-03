@@ -13,6 +13,10 @@ class Everlog
         Config.clear!
       end
 
+      def footer phrase
+        @content.push(:footer, Dom::Value::Footer.new(phrase))
+      end
+
       def publish(title, access_token, output)
         return @content.render if output == 'local'
         raise EverlogConfigError, 'evernote access_token not given' if access_token.nil?
