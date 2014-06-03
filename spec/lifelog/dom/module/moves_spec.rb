@@ -34,4 +34,10 @@ describe Everlog::Dom::Module::Moves do
       it { expect(subject).to be_instance_of Everlog::Dom::Value::Moves::Summary }
     end
   end
+
+  describe '.fetch_since' do
+    subject { described_class.fetch_since((DateTime.now - 1).to_time) }
+    it { expect(subject).to have_key :summary }
+    it { expect(subject).to have_key :storyline }
+  end
 end
