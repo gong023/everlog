@@ -1,6 +1,6 @@
 class Everlog
   class Dom::Entity::Config < Dom::Entity
-    THIRD_PARTY = %w(evernote twitter hatena github moves animetick wunderground googlemap).freeze
+    THIRD_PARTY = %w(evernote twitter hatena github moves animetick weather googlemap).freeze
 
     THIRD_PARTY.each do |service|
       const_set service.capitalize, Class.new {

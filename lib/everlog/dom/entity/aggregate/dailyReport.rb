@@ -29,15 +29,10 @@ class Everlog
 
       private
       def setup_config(service, option)
-        case service
-        when :weather
-          Config.wunderground.access_token = option[:access_token]
-        else
-          Config.send(service).consumer_key    = option[:consumer_key]
-          Config.send(service).consumer_secret = option[:consumer_secret]
-          Config.send(service).access_token    = option[:access_token]
-          Config.send(service).access_secret   = option[:access_secret]
-        end
+        Config.send(service).consumer_key    = option[:consumer_key]
+        Config.send(service).consumer_secret = option[:consumer_secret]
+        Config.send(service).access_token    = option[:access_token]
+        Config.send(service).access_secret   = option[:access_secret]
       end
     end
   end
