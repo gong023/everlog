@@ -1,14 +1,16 @@
 class Everlog
   class Dom::Module::Animetick < Dom::Module
-    def self.fetch_since date
-      config = Dom::Entity::Config.animetick
-      api_response = Inf::Api::Animetick.new(config).ticket_list
+    def ticket_list
+      Inf::Api::Animetick.new(@config).ticket_list
+    end
 
-      tickets = api_response.map do |r|
-        ticket = Dom::Value::Animetick.new(r)
-        ticket.updated_at > date ? ticket : nil
+    class << self
+      def fetch_since date
+        self.new.ticket_list.map do |r|
+          ticket = Dom::Value::Animetick.new(r)
+          ticket.updated_at > date ? ticket : nil
+        end.compact
       end
-      tickets.compact
     end
   end
 end

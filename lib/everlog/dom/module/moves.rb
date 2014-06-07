@@ -1,9 +1,5 @@
 class Everlog
   class Dom::Module::Moves < Dom::Module
-    def initialize config
-      @config = config
-    end
-
     def api_client
       @api_client ||= Inf::Api::Moves.new(@config)
     end
@@ -26,7 +22,7 @@ class Everlog
     class << self
       # date対応してない
       def fetch_since date
-        instance = self.new(Dom::Entity::Config.moves)
+        instance = self.new
         { summary: instance.summary, storyline: instance.storyline }
       end
     end

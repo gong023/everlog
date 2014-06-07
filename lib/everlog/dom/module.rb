@@ -7,5 +7,10 @@ class Everlog
     require 'everlog/dom/module/animetick'
     require 'everlog/dom/module/weather'
     require 'everlog/dom/module/evernote'
+
+    def initialize
+      service = self.class.name.split('::').last.downcase
+      @config = Dom::Entity::Config.send(service)
+    end
   end
 end
