@@ -5,10 +5,32 @@ class Everlog
     THIRD_PARTY.each do |service|
       const_set service.capitalize, Class.new {
         class << self
-          attr_accessor :consumer_key
-          attr_accessor :consumer_secret
-          attr_accessor :access_token
-          attr_accessor :access_secret
+          attr_writer :consumer_key
+          attr_writer :consumer_secret
+          attr_writer :access_token
+          attr_writer :access_secret
+
+          def message
+            service_name = self.name.split('::').last.downcase
+            required_param = caller()[0].match(/`.*'?/).to_s.delete('`\'')
+            "#{service_name} #{required_param} is requried."
+          end
+
+          def consumer_key
+            @consumer_key.nil? ? raise(Everlog::DomainConfigError, message) : @consumer_key
+          end
+
+          def consumer_secret
+            @consumer_secret.nil? ? raise(Everlog::DomainConfigError, message) : @consumer_secret
+          end
+
+          def access_token
+            @access_token.nil? ? raise(Everlog::DomainConfigError, message) : @access_token
+          end
+
+          def access_secret
+            @access_secret.nil? ? raise(Everlog::DomainConfigError, message) : @access_secret
+          end
         end
       }
     end
@@ -27,4 +49,6 @@ class Everlog
       end
     end
   end
+
+  class DomainConfigError < StandardError; end
 end
