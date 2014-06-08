@@ -19,8 +19,6 @@ class Everlog
 
       def publish(title, access_token, output)
         return @content.render if output == 'local'
-        raise EverlogConfigError, 'evernote access_token not given' if access_token.nil?
-
         Config.evernote.access_secret = access_token
         Dom::Module::Evernote.publish(title, @content.render, output)
       ensure
@@ -36,6 +34,4 @@ class Everlog
       end
     end
   end
-
-  class EverlogConfigError < StandardError; end
 end
