@@ -2,7 +2,6 @@ class Everlog
   class Inf::Cache::File < Inf::Cache
     require 'LocalFileCache'
     require 'everlog/inf/cache/file/wunderground'
-    require 'pry'
 
     def initialize
       service = self.class.name.split('::').last.downcase
