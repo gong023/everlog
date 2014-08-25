@@ -12,6 +12,6 @@ describe Everlog::Dom::Value::Moves::Referer::Place do
 
   describe '#screen_name' do
     subject { instance.screen_name }
-    it { expect(subject).to eq "O18, スモレンスク ロシア" }
+    it { is_expected.to match /ロシア/ }
   end
 end

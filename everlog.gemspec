@@ -26,6 +26,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'octokit'
   spec.add_dependency 'wunderground'
   spec.add_dependency 'LocalFileCache'
+  spec.add_dependency 'tiny_config'
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "guard-rspec"
   spec.add_development_dependency "dotenv"

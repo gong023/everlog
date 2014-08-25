@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Everlog::Dom::Module::Moves do
+xdescribe Everlog::Dom::Module::Moves do
   let(:instance) do
     described_class.new
   end
