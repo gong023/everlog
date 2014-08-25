@@ -27,7 +27,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'wunderground'
   spec.add_dependency 'LocalFileCache'
   spec.add_dependency 'tiny_config'
-  spec.add_development_dependency "rspec"
+  spec.add_development_dependency "rspec", "> 3.0.0"
   spec.add_development_dependency "guard-rspec"
   spec.add_development_dependency "dotenv"
   spec.add_development_dependency "bundler", "~> 1.3"

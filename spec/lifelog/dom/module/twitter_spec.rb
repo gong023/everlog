@@ -4,7 +4,7 @@ describe Everlog::Dom::Module::Twitter do
 
   describe '.fetch_since' do
     subject { described_class.fetch_since (DateTime.now - 1).to_time }
-    before { Everlog::Inf::Api::Twitter.any_instance.stub(:timeline).and_return(response) }
+    before { allow_any_instance_of(Everlog::Inf::Api::Twitter).to receive(:timeline).and_return(response) }
 
     let(:valid_date_tweet) { double('Twitter:Tweet', text: 'hello', created_at: DateTime.now.to_time) }
     let(:invalid_date_tweet) { double('Twitter:Tweet', text: 'invalid date', created_at: (DateTime.now - 2).to_time) }

@@ -8,7 +8,7 @@ describe Everlog::Inf::Api::Wunderground do
   describe '#yesterday' do
     it { expect { instance.yesterday('Tokyo') }.not_to raise_error }
     it 'read from cache' do
-      LocalFileCache.any_instance.should_receive(:get).once.and_return('sunny')
+      expect_any_instance_of(LocalFileCache).to receive(:get).once.and_return('sunny')
 
       # 一度目はcacheにセットされる
       expect { instance.yesterday('Tokyo').not_to raise_error }

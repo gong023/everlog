@@ -10,7 +10,7 @@ xdescribe Everlog::Dom::Module::Moves do
 
     context 'normal' do
       before do
-        described_class.any_instance.stub_chain(:moves_api, :daily_storyline).and_return(response)
+        allow_any_instance_of(described_class).to receive_message_chain(:moves_api, :daily_storyline).and_return(response)
       end
       let(:response) do
         load_fixture('moves/daily_storyline_response.json').first['segments']
@@ -25,7 +25,7 @@ xdescribe Everlog::Dom::Module::Moves do
     subject { instance.summary }
 
     context 'normal' do
-      before { described_class.any_instance.stub_chain(:moves_api, :daily_summary).and_return(response) }
+      before { allow_any_instance_of(described_class).to receive_message_chain(:moves_api, :daily_summary).and_return(response) }
 
       let(:response) do
         load_fixture('moves/daily_summary_response.json').first['summary']

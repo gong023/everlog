@@ -15,7 +15,7 @@ describe Everlog::Dom::Module::Github do
     subject { instance.repo_names }
     before do
       response = [double('api_client', full_name: 'everlog')]
-      Everlog::Inf::Api::Github.any_instance.stub(:repos).and_return(response)
+      allow_any_instance_of(Everlog::Inf::Api::Github).to receive(:repos).and_return(response)
     end
 
     it { expect(subject).to eq ['everlog'] }
@@ -34,7 +34,7 @@ describe Everlog::Dom::Module::Github do
     context 'with no commit existing' do
       let(:date) { '9999-09-09' }
       before do
-        described_class.any_instance.should_receive(:commits).with('everlog', '9999-09-09').and_return(nil)
+        expect_any_instance_of(described_class).to receive(:commits).with('everlog', '9999-09-09').and_return(nil)
       end
 
       it { expect(subject).to be_nil }
@@ -62,15 +62,15 @@ describe Everlog::Dom::Module::Github do
     subject { described_class.fetch_since((DateTime.now - 1).to_time) }
 
     context 'with no repository existing' do
-      before { Everlog::Dom::Module::Github.any_instance.stub(:repo_names).and_return([]) }
+      before { allow_any_instance_of(Everlog::Dom::Module::Github).to receive(:repo_names).and_return([]) }
 
       it { expect(subject).to eq [] }
     end
 
     context 'with no commit existing in repository' do
       before do
-        Everlog::Dom::Module::Github.any_instance.stub(:repo_activity).and_return(nil)
-        Everlog::Dom::Module::Github.any_instance.stub(:repo_names).and_return(['Everlog'])
+        allow_any_instance_of(Everlog::Dom::Module::Github).to receive(:repo_activity).and_return(nil)
+        allow_any_instance_of(Everlog::Dom::Module::Github).to receive(:repo_names).and_return(['Everlog'])
       end
 
       it { expect(subject).to eq [] }

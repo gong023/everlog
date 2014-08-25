@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Everlog::Dom::Module::Hatena do
   describe '.fetch_since' do
     subject { described_class.fetch_since (DateTime.now - 1).to_time }
-    before { Everlog::Inf::Api::Hatena.any_instance.stub(:feed_entry).and_return(response) }
+    before { allow_any_instance_of(Everlog::Inf::Api::Hatena).to receive(:feed_entry).and_return(response) }
 
     let(:valid_date_feed) do
       { 'title' => 'hello', 'link' => [{'href' => 'link'}], 'issued' => DateTime.now.to_time }

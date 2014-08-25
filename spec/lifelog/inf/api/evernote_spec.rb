@@ -20,7 +20,7 @@ describe Everlog::Inf::Api::Evernote do
   end
 
   describe '#post_note' do
-    before { EvernoteOAuth::Client.any_instance.stub_chain(:note_store, :createNote) }
+    before { allow_any_instance_of(EvernoteOAuth::Client).to receive_message_chain(:note_store, :createNote) }
       let(:content) do
 <<EOS
 <?xml version='1.0' encoding='UTF-8'?>

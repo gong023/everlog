@@ -18,7 +18,7 @@ describe Everlog::Dom::Repository::Evernote do
       let(:notebook_name) { 'something not existing' }
       it do
         api_mock = double('api_client', { guid: 1 })
-        Everlog::Inf::Api::Evernote.any_instance.should_receive(:create_notebook).and_return(api_mock)
+        expect_any_instance_of(Everlog::Inf::Api::Evernote).to receive(:create_notebook).and_return(api_mock)
         expect(subject).to be 1
       end
     end

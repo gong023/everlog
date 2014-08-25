@@ -5,7 +5,7 @@ describe Everlog::Dom::Module::Weather do
   describe '.fetch_since' do
     before do
       response = load_fixture('wunderground/yesterday_response.json')['response']
-      Everlog::Inf::Api::Wunderground.any_instance.should_receive(:yesterday).and_return(response)
+      expect_any_instance_of(Everlog::Inf::Api::Wunderground).to receive(:yesterday).and_return(response)
     end
 
     subject { described_class.fetch_since('dummy') }
