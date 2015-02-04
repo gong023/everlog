@@ -8,7 +8,7 @@ class Everlog
       @cache = LocalFileCache.new("#{::File.dirname(__FILE__)}/data/#{service}")
     end
 
-    def get_and_save(date, proc_args = {}, &api_proc)
+    def create(date, proc_args = {}, &api_proc)
       return @cache.get(date) if @cache.has?(date)
       data = api_proc.call(proc_args)
       @cache.set(date, data)

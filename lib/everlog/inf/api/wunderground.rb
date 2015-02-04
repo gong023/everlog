@@ -13,9 +13,10 @@ class Everlog
 
     def yesterday place
       @cache.delete((Date.today - 2).to_s)
-      @cache.get_and_save((Date.today - 1).to_s, { place: place, client: client}) do |args|
-        args[:client].yesterday_for(args[:place])['history']
+      response = @cache.create((Date.today - 1).to_s, { place: place, client: client}) do |args|
+        args[:client].yesterday_for(args[:place]).to_json
       end
+      JSON.parse(response)['history']
     rescue => e
       raise InfrastructureWeatherError, "yesterday error / #{e.message}"
     end
