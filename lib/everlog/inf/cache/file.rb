@@ -1,6 +1,6 @@
 class Everlog
   class Inf::Cache::File < Inf::Cache
-    require 'LocalFileCache'
+    require 'localFileCache'
     require 'everlog/inf/cache/file/wunderground'
 
     def initialize

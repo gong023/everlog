@@ -10,4 +10,9 @@ describe Everlog::Inf::Api::Moves do
       expect(instance.client).to be instance.client
     end
   end
+
+  describe '#daily_summary' do
+    it { expect { instance.daily_summary }.not_to raise_error }
+  end
+
 end
